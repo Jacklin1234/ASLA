@@ -3,26 +3,62 @@ package com.example.jmay.asla;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.os.Bundle;
+import java.sql.Connection;
+import java.sql.Statement;
 
-public class DataLogger extends SQLiteOpenHelper{
+import java.sql.DriverManager;
+import java.sql.Timestamp;
+import java.util.Properties;
+import java.sql.SQLException;
 
-    private static final String acclTable = "Accelerometer";
-    private static final String CREATE_TABLE_ACC = "CREATE TABLE " + acclTable +
-            "(id INTEGER PRIMARY KEY, Accelerometer TEXT, status INTEGER, created_at DATETIME)";
+public class DataLogger{
 
-    public DataLogger(Context context){
-        super(context, "Sensor Data", null, 1);
+    public static void createDatabase() throws SQLException {
+        Connection connection = getConnection();
+        String create_accl = "CREATE TABLE IF NOT EXSITS `Accelerometer` (`X` FLOAT NOT NULL, " +
+                "`Y` FLOAT NOT NULL, `Z` FLOAT NOT NULL, `TIMESTAMP` VARCHAR(45) NOT NULL, PRIMARY KEY(`TIMESTAMP`));";
+        String create_gyro = "CREATE TABLE IF NOT EXISTS `Gyroscope` (`X` FLOAT NOT NULL, `Y` FLOAT NOT NULL," +
+                "`Z` FLOAT NOT NULL, `TIMESTAMP` VARCHAR(45) NOT NULL, PRIMARY KEY(`TIMESTAMP`));";
+        Statement statement = connection.createStatement();
+        statement.executeUpdate(create_accl);
+        statement.execute(create_gyro);
     }
-    @Override
-    public void onCreate(SQLiteDatabase db){
-        db.execSQL(CREATE_TABLE_ACC);
+
+    public static Connection getConnection(){
+        Connection connection = null;
+        Properties properties = new Properties();
+        try{
+            DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+            connection = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/ASLAtables", properties);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return connection;
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase db, int older, int newer){
-        db.execSQL("DROP TABLE IF EXISTS " + acclTable);
-
-        onCreate(db);
+    public static void clearDatabase() throws SQLException {
+        Connection connection = getConnection();
+        String clear_accl = "truncate `Accelerometer`;";
+        String clear_gyro = "truncate `Gyroscope`;";
+        Statement statement = connection.createStatement();
+        statement.executeUpdate(clear_accl);
+        statement.executeUpdate(clear_gyro);
     }
+
+    public static void addAccelerometer(Float x, Float y, Float z, long timestamp) throws SQLException{
+        Connection connection = getConnection();
+        String addAccl = "INSERT INTO `Accelerometer` (`X`, `Y`, `Z`, `Timestamp`) VALUES " +
+                " ('" + x + "', '" + y + "', '" + z + "', 'SELECT CONVERT(varchar, " + timestamp + ")');";
+        Statement statement = connection.createStatement();
+        statement.executeUpdate(addAccl);
+    }
+
+    public static void addGyroscope(Float x, Float y, Float z, long timestamp) throws SQLException {
+        Connection connection = getConnection();
+        String addGyro = "INSERT INTO `Gyroscope` (`X`, `Y`, `Z`, `Timestamp`) VALUES  ('" + x + "', '" +
+                y + "', '" + z + "', 'SELECT CONVERT(varchar, " + timestamp + ")');";
+        Statement statement = connection.createStatement();
+        statement.executeUpdate(addGyro);
+    }
+
 }

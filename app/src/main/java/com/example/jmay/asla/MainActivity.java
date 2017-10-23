@@ -32,7 +32,6 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
     private ArrayList sensorData;
     private boolean hasStarted = false;
     private LinearLayout linearLayout;
-    private String ServersURL = "http://cse.unl.edu.com/THINKLab/ASLA.php";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +82,8 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
         }
     }
 
+
+
     //registers when buttons are clicked and what should happen as a result
     @Override
     public void onClick(View v) {
@@ -107,41 +108,4 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
         }
     }
 
-    public int uploadData(final String filePath, ArrayList data) throws MalformedURLException {
-        int serverResponse = 0;
-
-        HttpURLConnection connection;
-        DataOutputStream outputStream = null;
-        File chosenFile = new File(filePath);
-        String[] fileNameParts = filePath.split("/");
-        String fileName = fileNameParts[fileNameParts.length-1];
-        String boundary = "*****";
-
-        if(!chosenFile.isFile()){
-            return 0;
-        }else{
-            try{
-                FileInputStream fileInputStream = new FileInputStream(chosenFile);
-                URL url = new URL(ServersURL);
-                connection = (HttpURLConnection) url.openConnection();
-                connection.setDoInput(true);
-                connection.setDoOutput(true);
-                connection.setUseCaches(false);
-                connection.setRequestMethod("POST");
-                connection.setRequestProperty("Connection", "Keep-Alive");
-                connection.setRequestProperty("ENCTYPE", "multipart/form-data");
-                connection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-                connection.setRequestProperty("uploaded_file", filePath);
-
-                outputStream.writeBytes("Content-Disposition: form-data; name=\"uploaded_file\";filename=\"" + filePath + "\"" +"\r\n");
-            }catch(FileNotFoundException e){
-
-            } catch (ProtocolException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return 0;
-    }
 }

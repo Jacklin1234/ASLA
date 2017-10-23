@@ -48,10 +48,5 @@ public class Accelerometer {
     public void setZ(double z) {
         this.z = z;
     }
-
-    //prints all the information
-    public String toString(){
-        return "timestamp= " + timestamp +";  x= " + x +";  y= " + y + ";  z= " + z;
-    }
 }
 

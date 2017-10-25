@@ -35,6 +35,7 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        System.out.println("1");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -72,6 +73,7 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
 
     @Override
     public void onSensorChanged(SensorEvent event){
+        System.out.println("2");
         if(hasStarted){
             double x = event.values[0];
             double y = event.values[1];
@@ -87,6 +89,7 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
     //registers when buttons are clicked and what should happen as a result
     @Override
     public void onClick(View v) {
+        System.out.println("3");
         switch (v.getId()) {
             case R.id.startButton:
                 startButton.setEnabled(false);

@@ -10,7 +10,7 @@ import java.util.Properties;
 import java.sql.SQLException;
 
 public class JDBCInterface{
-/*
+
     public static void createDatabase() {
         Connection connection = getConnection();
         String create_accl = "CREATE TABLE IF NOT EXSITS `Accelerometer` (`X` FLOAT NOT NULL, " +
@@ -87,5 +87,4 @@ public class JDBCInterface{
             return connection;
         }
     }
-    */
 }

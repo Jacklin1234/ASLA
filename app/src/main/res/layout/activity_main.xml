@@ -13,81 +13,99 @@
         android:layout_weight="1.0"
         android:orientation="vertical">
         <TableLayout
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:id="@+id/dataTable">
             <TableRow
                 android:id="@+id/leftrow"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="1.0"
                     android:background="@drawable/border">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Accelerometer"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
                         android:id="@+id/accel_field"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/accl_x_axis_label"
                         android:text="@string/x_axis"
+                        android:textStyle="bold"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@id/accel_field"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/accl_value_x"
+                        android:layout_marginLeft="5dp"
                         android:layout_toRightOf="@+id/accl_x_axis_label"
                         android:layout_below="@id/accel_field"
-                        android:text="@string/accl_value"/>
+                        android:text="@string/accl_x_value"
+                        android:textStyle="bold"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/accl_y_axis_label"
                         android:text="@string/y_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@id/accl_x_axis_label"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/accl_value_y_axis"
+                        android:id="@+id/accl_value_y"
                         android:layout_toRightOf="@id/accl_y_axis_label"
                         android:layout_below="@+id/accl_x_axis_label"
-                        android:text="@string/accl_value"/>
+                        android:text="@string/accl_y_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/accl_z_axis_label"
                         android:text="@string/z_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@id/accl_y_axis_label"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/accl_value_z"
-                        android:text="@string/accl_value"
+                        android:text="@string/accl_z_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_below="@id/accl_y_axis_label"
                         android:layout_toRightOf="@+id/accl_z_axis_label"/>
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="1.5"
                     android:background="@drawable/border">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Gyroscope"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
                         android:id="@+id/gyro_field"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/gyro_x_axis_label"
                         android:text="@string/x_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@id/gyro_field"/>
                     <TextView
@@ -96,12 +114,16 @@
                         android:id="@+id/value_x"
                         android:layout_toRightOf="@+id/gyro_x_axis_label"
                         android:layout_below="@id/gyro_field"
-                        android:text="@string/gyro_value"/>
+                        android:text="@string/gyro_x_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/gyro_y_axis_label"
                         android:text="@string/y_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@id/gyro_x_axis_label"/>
                     <TextView
@@ -110,22 +132,34 @@
                         android:id="@+id/gyro_value_y_axis"
                         android:layout_toRightOf="@id/gyro_y_axis_label"
                         android:layout_below="@+id/gyro_x_axis_label"
-                        android:text="@string/gyro_value"/>
+                        android:text="@string/gyro_y_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/gyro_z_axis_label"
                         android:text="@string/z_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@id/gyro_y_axis_label"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/gyro_value_z"
-                        android:text="@string/gyro_value"
+                        android:text="@string/gyro_z_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_below="@id/gyro_y_axis_label"
                         android:layout_toRightOf="@+id/gyro_z_axis_label"/>
                 </RelativeLayout>
+            </TableRow>
+            <TableRow
+                android:id="@+id/bottomrow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -135,12 +169,16 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Proximity"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
                         android:id="@+id/prox_field"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/prox_x_axis_label"
                         android:text="@string/x_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@id/prox_field"/>
                     <TextView
@@ -149,12 +187,16 @@
                         android:id="@+id/prox_value_x"
                         android:layout_toRightOf="@+id/prox_x_axis_label"
                         android:layout_below="@id/prox_field"
-                        android:text="@string/prox_value"/>
+                        android:text="@string/prox_x_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/prox_y_axis_label"
                         android:text="@string/y_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@id/prox_x_axis_label"/>
                     <TextView
@@ -163,21 +205,94 @@
                         android:id="@+id/prox_value_y_axis"
                         android:layout_toRightOf="@id/prox_y_axis_label"
                         android:layout_below="@+id/prox_x_axis_label"
-                        android:text="@string/prox_value"/>
+                        android:text="@string/prox_x_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/prox_z_axis_label"
                         android:text="@string/z_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_alignParentLeft="true"
                         android:layout_below="@id/prox_y_axis_label"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/prox_value_z"
-                        android:text="@string/prox_value"
+                        android:text="@string/prox_z_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
                         android:layout_below="@id/prox_y_axis_label"
                         android:layout_toRightOf="@+id/prox_z_axis_label"/>
+                </RelativeLayout>
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/border">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Light"
+                        android:textAllCaps="true"
+                        android:textStyle="bold"
+                        android:id="@+id/light_field"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/light_x_axis_label"
+                        android:text="@string/x_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/light_field"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/light_value_x"
+                        android:layout_toRightOf="@+id/light_x_axis_label"
+                        android:layout_below="@id/light_field"
+                        android:text="@string/light_x_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/light_y_axis_label"
+                        android:text="@string/y_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/light_x_axis_label"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/light_value_y_axis"
+                        android:layout_toRightOf="@id/light_y_axis_label"
+                        android:layout_below="@+id/light_x_axis_label"
+                        android:text="@string/light_y_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/light_z_axis_label"
+                        android:text="@string/z_axis"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_alignParentLeft="true"
+                        android:layout_below="@id/light_y_axis_label"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/light_value_z"
+                        android:text="@string/light_z_value"
+                        android:textStyle="bold"
+                        android:layout_marginLeft="5dp"
+                        android:layout_below="@id/light_y_axis_label"
+                        android:layout_toRightOf="@+id/light_z_axis_label"/>
                 </RelativeLayout>
             </TableRow>
         </TableLayout>
@@ -199,13 +314,6 @@
         android:layout_height="match_parent"
         android:text="@string/end"
         android:layout_weight="1.0"/>
-
-    <Button
-        android:id="@+id/uploadButton"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/upload"
-        android:layout_weight="1.0" />
     </LinearLayout>
 
 

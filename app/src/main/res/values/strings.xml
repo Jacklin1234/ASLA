@@ -5,8 +5,17 @@
     <string name="end">END</string>
     <string name="x_axis">X-Axis:</string>
     <string name="y_axis">Y-Axis:</string>
-    <string name="accl_value">0.0</string>
     <string name="z_axis">Z-Axis:</string>
-    <string name="gyro_value">0.0</string>
-    <string name="prox_value">0.0</string>
+    <string name="gyro_x_value">0.0</string>
+    <string name="gyro_y_value">0.0</string>
+    <string name="gyro_z_value">0.0</string>
+    <string name="prox_x_value">0.0</string>
+    <string name="prox_y_value">0.0</string>
+    <string name="prox_z_value">0.0</string>
+    <string name="light_x_value">0.0</string>
+    <string name="light_y_value">0.0</string>
+    <string name="light_z_value">0.0</string>
+    <string name="accl_x_value">0.0</string>
+    <string name="accl_y_value">0.0</string>
+    <string name="accl_z_value">0.0</string>
 </resources>

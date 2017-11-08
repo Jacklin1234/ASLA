@@ -12,60 +12,59 @@ import android.util.AttributeSet;
  */
 
 public class Gyroscope {
+    private long timestamp;
+    private double Rx; //coordinates for accelerometer
+    private double Ry;
+    private double Rz;
 
+    public Gyroscope(long timestamp, double rx, double ry, double rz) {
+        this.timestamp = timestamp;
+        Rx = rx;
+        Ry = ry;
+        Rz = rz;
 
+    }
 
+    public long getTimestamp() {
+        return timestamp;
+    }
 
+    public void setTimestamp(long timestamp) {
+        this.timestamp = timestamp;
+    }
 
+    public double getRx() {
+        return Rx;
+    }
 
+    public void setRx(double rx) {
+        Rx = rx;
+    }
 
+    public double getRy() {
+        return Ry;
+    }
 
+    public void setRy(double ry) {
+        Ry = ry;
+    }
 
-//    private static final int centerDegree = 0;
-//    private static final int minDegree = 0;
-//    private static final int maxDegree = 0;
-//    private boolean handInitialized = false;
-//    private float handPosition = 0;
-//    private float handTarget = 0;
-//    private float handVelocity = 0.0f;
-//    private float handAcceleration = 0.0f;
-//    private long lastHandMoveTime = -1L;
-//
-//    private RectF perimRect, faceRect, outerRect;
-//    private Paint background, face, hand, perim, outer;
-//
-//
-//
-//    public Gyroscope(Context context) {
-//        super(context);
-//        init();
-//    }
-//
-//    public Gyroscope(Context context, AttributeSet attributeSet, int defStyle){
-//        super(context, attributeSet, defStyle);
-//        init();
-//    }
-//
-//    public void updateBearingOfDevice(float a){
-//        a = (float) (Math.toDegrees(a) + 360) % 360;
-//        setHandTarget(a);
-//    }
-//
-//    private void init(){
-//        perimRect = new RectF(0.12f, 0.12f, 0.88f, 0.88f);
-//        perim = new Paint();
-//        perim.setFlags(Paint.ANTI_ALIAS_FLAG);
-//        perim.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.CLEAR));
-//
-//        float outerSize = -0.04f;
-//        outerRect = new RectF();
-//        outerRect.set(perimRect.left + outerSize, perimRect.top + outerSize, perimRect.right - outerSize,
-//                perimRect.bottom - outerSize);
-//
-//        outer = new Paint();
-//        outer.setFlags(Paint.ANTI_ALIAS_FLAG);
-//        outer.setColor();
-//
-//    }
+    public double getRz() {
+        return Rz;
+    }
 
+    public void setRz(double rz) {
+        Rz = rz;
+    }
+
+    @Override
+    public String toString() {
+        return "Gyroscope{" +
+                "timestamp=" + timestamp +
+                ", Rx=" + Rx +
+                ", Ry=" + Ry +
+                ", Rz=" + Rz +
+                '}';
+    }
 }
+

@@ -10,7 +10,7 @@ public class Accelerometer {
     private double y;
     private double z;
 
-    public Accelerometer(long timestamp, double x, double y, double z){
+    public Accelerometer(long timestamp, double x, double y, double z) {
         this.timestamp = timestamp;
         this.x = x;
         this.y = y;
@@ -47,6 +47,19 @@ public class Accelerometer {
 
     public void setZ(double z) {
         this.z = z;
+    }
+
+    //prints all the information
+
+
+    @Override
+    public String toString() {
+        return "Accelerometer{" +
+                "timestamp=" + timestamp +
+                ", x=" + x +
+                ", y=" + y +
+                ", z=" + z +
+                '}';
     }
 }
 

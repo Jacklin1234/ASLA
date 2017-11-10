@@ -58,9 +58,7 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
     //private DataLogger db;
     private MyDatabase db;
     private String ServersURL = "http://cse.unl.edu.com/THINKLab/ASLA.php";
-    private TextView acclX;
-    private TextView acclY;
-    private TextView acclZ;
+    private TextView acclX, acclY, acclZ, gyroX, gyroY, gyroZ, lightX, lightY, lightZ, proxX, proxY, proxZ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -257,9 +255,9 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
                             AccelerometerSensorRawData.get(i - 1).getY(),
                             AccelerometerSensorRawData.get(i - 1).getZ());
                     AccelerometerSensorData.add(acc);
-                    //acclX.setText(String.format("%.4f", Math.toDegrees(AccelerometerSensorRawData.get(i-1).getX())));
-                   // acclY.setText(String.format("%.4f", Math.toDegrees(AccelerometerSensorRawData.get(i-1).getY())));
-                   // acclZ.setText(String.format("%.4f", Math.toDegrees(AccelerometerSensorRawData.get(i-1).getZ())));
+                    acclX.setText(String.format("%.4f", AccelerometerSensorRawData.get(i-1).getX()));
+                    acclY.setText(String.format("%.4f", Math.toDegrees(AccelerometerSensorRawData.get(i-1).getY())));
+                    acclZ.setText(String.format("%.4f", Math.toDegrees(AccelerometerSensorRawData.get(i-1).getZ())));
                     index = i-1;
                     break;
                 }
@@ -271,6 +269,9 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
     public ArrayList<Gyroscope> HandleGyroscopeRawData(ArrayList<Gyroscope> GyroscopeSensorRawData, long startTime, long endTime){
         long preTime = startTime;
         int index = 1;
+        gyroX = this.findViewById(R.id.gyro_value_x);
+        gyroY = this.findViewById(R.id.gyro_value_y);
+        gyroZ = this.findViewById(R.id.gyro_value_z);
         ArrayList<Gyroscope> GySensorSensorData = new ArrayList<Gyroscope>();
         GySensorSensorData.add(new Gyroscope(startTime,
                 GyroscopeSensorRawData.get(0).getRx(),
@@ -284,6 +285,9 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
                             GyroscopeSensorRawData.get(i - 1).getRy(),
                             GyroscopeSensorRawData.get(i - 1).getRz());
                     GySensorSensorData.add(gyr);
+                    gyroX.setText(String.format("%.4f", GyroscopeSensorRawData.get(i-1).getRx()));
+                    gyroY.setText(String.format("%.4f", GyroscopeSensorRawData.get(i-1).getRx()));
+                    gyroZ.setText(String.format("%.4f", GyroscopeSensorRawData.get(i-1).getRz()));
                     index = i-1;
                     break;
                 }
@@ -295,6 +299,7 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
     public ArrayList<Proximity> HandleProximityRawData(ArrayList<Proximity> ProximitySensorRawData, long startTime, long endTime){
         long preTime = startTime;
         int index = 1;
+        proxX = this.findViewById(R.id.prox_value);
         ArrayList<Proximity> ProximitySensorData = new ArrayList<Proximity>();
         ProximitySensorData.add(new Proximity(startTime,
                 ProximitySensorRawData.get(0).getDistance()));
@@ -304,12 +309,14 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
                     Proximity prox = new Proximity(preTime,
                             ProximitySensorRawData.get(i - 1).getDistance());
                     ProximitySensorData.add(prox);
+                    proxX.setText(String.format("%.4f", ProximitySensorRawData.get(i-1).getDistance()));
                     break;
                 }
                 else if(i == ProximitySensorRawData.size() - 1 )
                 {
                     Proximity prox = new Proximity(preTime, ProximitySensorRawData.get(i).getDistance());
                     ProximitySensorData.add(prox);
+                    proxX.setText(String.format("%.4f", ProximitySensorRawData.get(i).getDistance()));
                 }
             }
         }
@@ -319,6 +326,7 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
     public ArrayList<LightSensor> HandleLightSensorRawData(ArrayList<LightSensor> LightSensorRawData, long startTime, long endTime){
         long preTime = startTime;
         int index = 1;
+        lightX = this.findViewById(R.id.light_value);
         ArrayList<LightSensor> LightSensorData = new ArrayList<LightSensor>();
         LightSensorData.add(new LightSensor(startTime,
                 LightSensorRawData.get(0).getIlluminance()));
@@ -327,13 +335,14 @@ public class MainActivity extends Activity implements SensorEventListener, OnCli
                 if(LightSensorRawData.get(i).getTimestamp() > preTime) {
                     LightSensor light = new LightSensor(preTime, LightSensorRawData.get(i - 1).getIlluminance());
                     LightSensorData.add(light);
-
+                    lightX.setText(String.format("%.4f", LightSensorRawData.get(i-1).getIlluminance()));
                     break;
                 }
                 else if(i == LightSensorRawData.size() - 1 )
                 {
                     LightSensor light = new LightSensor(preTime, LightSensorRawData.get(i).getIlluminance());
                     LightSensorData.add(light);
+                    lightX.setText(String.format("%.4f", LightSensorRawData.get(i-1).getIlluminance()));
                 }
             }
         }

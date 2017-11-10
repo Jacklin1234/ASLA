@@ -111,7 +111,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/value_x"
+                        android:id="@+id/gyro_value_x"
                         android:layout_toRightOf="@+id/gyro_x_axis_label"
                         android:layout_below="@id/gyro_field"
                         android:text="@string/gyro_x_value"
@@ -129,7 +129,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/gyro_value_y_axis"
+                        android:id="@+id/gyro_value_y"
                         android:layout_toRightOf="@id/gyro_y_axis_label"
                         android:layout_below="@+id/gyro_x_axis_label"
                         android:text="@string/gyro_y_value"
@@ -175,8 +175,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/prox_x_axis_label"
-                        android:text="@string/x_axis"
+                        android:id="@+id/prox_distance_label"
+                        android:text="@string/dist"
                         android:textStyle="bold"
                         android:layout_marginLeft="5dp"
                         android:layout_alignParentLeft="true"
@@ -184,48 +184,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/prox_value_x"
-                        android:layout_toRightOf="@+id/prox_x_axis_label"
+                        android:id="@+id/prox_value"
+                        android:layout_toRightOf="@+id/prox_distance_label"
                         android:layout_below="@id/prox_field"
-                        android:text="@string/prox_x_value"
+                        android:text="@string/prox_value"
                         android:textStyle="bold"
                         android:layout_marginLeft="5dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/prox_y_axis_label"
-                        android:text="@string/y_axis"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_below="@id/prox_x_axis_label"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/prox_value_y_axis"
-                        android:layout_toRightOf="@id/prox_y_axis_label"
-                        android:layout_below="@+id/prox_x_axis_label"
-                        android:text="@string/prox_x_value"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/prox_z_axis_label"
-                        android:text="@string/z_axis"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_below="@id/prox_y_axis_label"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/prox_value_z"
-                        android:text="@string/prox_z_value"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"
-                        android:layout_below="@id/prox_y_axis_label"
-                        android:layout_toRightOf="@+id/prox_z_axis_label"/>
                 </RelativeLayout>
                 <RelativeLayout
                     android:layout_width="wrap_content"
@@ -242,8 +206,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/light_x_axis_label"
-                        android:text="@string/x_axis"
+                        android:id="@+id/light_illum_label"
+                        android:text="@string/illum"
                         android:textStyle="bold"
                         android:layout_marginLeft="5dp"
                         android:layout_alignParentLeft="true"
@@ -251,48 +215,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:id="@+id/light_value_x"
-                        android:layout_toRightOf="@+id/light_x_axis_label"
+                        android:id="@+id/light_value"
+                        android:layout_toRightOf="@+id/light_illum_label"
                         android:layout_below="@id/light_field"
-                        android:text="@string/light_x_value"
+                        android:text="@string/light_value"
                         android:textStyle="bold"
                         android:layout_marginLeft="5dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/light_y_axis_label"
-                        android:text="@string/y_axis"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_below="@id/light_x_axis_label"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/light_value_y_axis"
-                        android:layout_toRightOf="@id/light_y_axis_label"
-                        android:layout_below="@+id/light_x_axis_label"
-                        android:text="@string/light_y_value"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/light_z_axis_label"
-                        android:text="@string/z_axis"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"
-                        android:layout_alignParentLeft="true"
-                        android:layout_below="@id/light_y_axis_label"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/light_value_z"
-                        android:text="@string/light_z_value"
-                        android:textStyle="bold"
-                        android:layout_marginLeft="5dp"
-                        android:layout_below="@id/light_y_axis_label"
-                        android:layout_toRightOf="@+id/light_z_axis_label"/>
                 </RelativeLayout>
             </TableRow>
         </TableLayout>
